@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 1</title>
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/day-styles.css">
+</head>
+<body>
+    <a href="../../index.html" class="back-button">← Back to Timeline</a>
+    
+    <div class="day-detail-container" style="background-color: #0f0f0f20">
+        <div class="day-detail-header">
+            <h1>1</h1>
+            <h2>Deep time</h2>
+        </div>
+        
+        <div class="day-detail-content">
+            <div class="detail-section">
+                <h3>Agenda</h3>
+                <ul>
+                    <li>Geologisk instituut</li>
+                    <li>Aros</li>
+                    <li>Aarhus</li>
+                </ul>
+            </div>
+            
+            <div class="detail-section">
+                <h3>Activities</h3>
+                <p>...</p>
+            </div>
+            
+            <div class="detail-section">
+                <h3>Reflections</h3>
+                <p>...</p>
+            </div>
+            <div class="detail-section">
+                <h3>Audio</h3>
+                <audio controls style="width: 100%">
+                    <source src="../../audio/day1.WAV" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <p class="audio-transcript">Click play to listen.</p>
+            </div>
+            <div></div>
+            <script>
+
+
+                var xhr = new XMLHttpRequest();
+                    xhr.open("GET", "../../images/Day1/", true);
+                    xhr.responseType = 'document';
+                    xhr.onload = () => {
+                    if (xhr.status === 200) {
+                        var elements = xhr.response.getElementsByTagName("a");
+                        for (x of elements) {
+                        if ( x.href.match(/\.(jpe?g|png|gif)$/) ) { 
+                            let img = document.createElement("img");
+                            img.src = x.href;
+                            document.body.appendChild(img);
+                            img.height = 
+                        } 
+                        };
+                    } 
+                    else {
+                        alert('Request failed. Returned status of ' + xhr.status);
+                    }
+                    }
+                    xhr.send()
+
+
+                    /*// Replace with your actual image paths
+                    const imageFolder = 'images/'; // Relative path to your image folder
+                    const imageFiles = [
+                        'image1.jpg', 'image2.jpg', 'image3.jpg', 'image4.jpg',
+                        'image5.jpg', 'image6.jpg', 'image7.jpg', 'image8.jpg'
+                    ];
+                    
+                    const mosaicContainer = document.getElementById('mosaic');
+                    
+                    // Create mosaic items
+                    imageFiles.forEach(filename => {
+                        const imgPath = imageFolder + filename;
+                        
+                        const mosaicItem = document.createElement('div');
+                        mosaicItem.className = 'mosaic-item';
+                        
+                        const img = document.createElement('img');
+                        img.src = imgPath;
+                        img.alt = filename;
+                        
+                        mosaicItem.appendChild(img);
+                        mosaicContainer.appendChild(mosaicItem);
+                    });*/
+            </script>
+        </div>
+    </div>
+</body>
+</html>

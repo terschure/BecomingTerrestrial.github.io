@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8-Day Timeline</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <audio id="globalAudio" style="display: none;"></audio>
+</head>
+<body>
+    <div class="timeline-header">
+        <h2>Isa and anneke, becoming terrestrial together</h2>
+        <p>making ourselves kin with soil, their history, inhabitants, processes and life forms through sensual communication and attunuation</p>
+    </div>
+    
+    <div class="timeline-container" id="timeline">
+        <!-- Days will be added by JavaScript -->
+    </div>
+    
+    <div class="controls">
+        <button id="prevBtn">Previous</button>
+        <button id="nextBtn">Next</button>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const timeline = document.getElementById('timeline');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const globalAudio = document.getElementById('globalAudio');
+
+            // Day data - each links to its separate HTML file
+            const days = [
+                { id: 1, date: "1", title: "Deep time", color: "#000000", audio: "audio/day1.WAV"},
+                { id: 2, date: "2", title: "Bogens", color: "#000000" },
+                { id: 3, date: "3", title: "Ob serve", color: "#000000" },
+                { id: 4, date: "4", title: "...", color: "#000000" },
+                { id: 5, date: "5", title: "...", color: "#000000" },
+                { id: 6, date: "6", title: "...", color: "#000000" },
+                { id: 7, date: "7", title: "...", color: "#000000" },
+                { id: 8, date: "8", title: "...", color: "#000000" }
+            ];
+            
+            // Create day cards with click handlers
+            days.forEach(day => {
+                const dayCard = document.createElement('div');
+                dayCard.className = 'day-card';
+                dayCard.onclick = () => window.location.href = `html/logbook/day${day.id}.html`;
+                
+                dayCard.innerHTML = `
+                  <div class="day-header">${day.date}</div>
+                  <div class="day-content">
+                    <div class="day-preview" style="background-color: ${day.color}">
+                        <div class="day-title">${day.title}</div>
+                        <div class="audio-controls">
+                            <button class="play-btn" onclick="event.stopPropagation(); playAudio('${day.audio}')">
+                                ▶ Play
+                            </button>
+                        </div>
+                    </div>
+                  </div>
+                `;
+                
+                dayCard.onclick = () => window.location.href = `html/logbook/day${day.id}.html`;
+                timeline.appendChild(dayCard);
+                });
+        
+                // Audio playback function
+                window.playAudio = function(audioSrc) {
+                  globalAudio.src = audioSrc;
+                  globalAudio.play();
+                };
+            
+            // Navigation controls
+            let scrollPosition = 0;
+            const scrollAmount = 270;
+            
+            prevBtn.addEventListener('click', () => {
+                scrollPosition = Math.max(scrollPosition - scrollAmount, 0);
+                timeline.scrollTo({ left: scrollPosition, behavior: 'smooth' });
+            });
+            
+            nextBtn.addEventListener('click', () => {
+                scrollPosition = Math.min(
+                    scrollPosition + scrollAmount, 
+                    timeline.scrollWidth - timeline.clientWidth
+                );
+                timeline.scrollTo({ left: scrollPosition, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
