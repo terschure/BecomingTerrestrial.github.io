@@ -18,19 +18,13 @@
         
         <div class="day-detail-content">
             <div class="detail-section">
-                <h3>Agenda</h3>
+                <h3></h3>
                 <ul>
                     <li>Geologisk instituut</li>
                     <li>Aros</li>
                     <li>Aarhus</li>
                 </ul>
-            </div>
-            
-            <div class="detail-section">
-                <h3>Activities</h3>
-                <p>...</p>
-            </div>
-            
+            </div> 
             <div class="detail-section">
                 <h3>Reflections</h3>
                 <p>...</p>
@@ -43,11 +37,33 @@
                 </audio>
                 <p class="audio-transcript">Click play to listen.</p>
             </div>
-            <div></div>
+            <div class="mosaic-container" id="mosaic"></div>
             <script>
+                // Replace with your actual image paths
+                    const imageFolder = '../../images/Day1/'; // Relative path to your image folder
+                    const imageFiles = [
+                        '01.jpg', '02.jpg', '03.jpg', '04.jpg',
+                        '05.jpg', '06.jpg', '07.jpg', '08.jpg'
+                    ];
+                    
+                    const mosaicContainer = document.getElementById('mosaic');
+                    
+                    // Create mosaic items
+                    imageFiles.forEach(filename => {
+                        const imgPath = imageFolder + filename;
+                        
+                        const mosaicItem = document.createElement('div');
+                        mosaicItem.className = 'mosaic-item';
+                        
+                        const img = document.createElement('img');
+                        img.src = imgPath;
+                        img.alt = filename;
+                        
+                        mosaicItem.appendChild(img);
+                        mosaicContainer.appendChild(mosaicItem);
+                    });
 
-
-                var xhr = new XMLHttpRequest();
+                /* var xhr = new XMLHttpRequest();
                     xhr.open("GET", "../../images/Day1/", true);
                     xhr.responseType = 'document';
                     xhr.onload = () => {
@@ -66,32 +82,8 @@
                         alert('Request failed. Returned status of ' + xhr.status);
                     }
                     }
-                    xhr.send()
+                    xhr.send() */
 
-
-                    /*// Replace with your actual image paths
-                    const imageFolder = 'images/'; // Relative path to your image folder
-                    const imageFiles = [
-                        'image1.jpg', 'image2.jpg', 'image3.jpg', 'image4.jpg',
-                        'image5.jpg', 'image6.jpg', 'image7.jpg', 'image8.jpg'
-                    ];
-                    
-                    const mosaicContainer = document.getElementById('mosaic');
-                    
-                    // Create mosaic items
-                    imageFiles.forEach(filename => {
-                        const imgPath = imageFolder + filename;
-                        
-                        const mosaicItem = document.createElement('div');
-                        mosaicItem.className = 'mosaic-item';
-                        
-                        const img = document.createElement('img');
-                        img.src = imgPath;
-                        img.alt = filename;
-                        
-                        mosaicItem.appendChild(img);
-                        mosaicContainer.appendChild(mosaicItem);
-                    });*/
             </script>
         </div>
     </div>
