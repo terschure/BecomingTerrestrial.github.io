@@ -164,6 +164,10 @@ button:hover {
   transform: scale(0.90);
 }
 
+.drawing-item:onclick img {
+  transform: translate(5%, 0%);
+}
+
 a {
   color: #4d8527; /* Default link color */
 }

@@ -43,9 +43,9 @@
 
 .mosaic-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-gap: 10px;
-    padding: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    grid-gap: 30px;
+    padding: 30px;
 }
 
 .mosaic-item {
@@ -63,7 +63,7 @@
     transition: transform 0.3s ease;
 }
 
-.mosaic-item:hover img {
-    transform: scale(1.05);
+.mosaic-item:hover {
+    transform: scale(1.2);
 }
 
