@@ -94,11 +94,12 @@
         });
 
         // Replace with your actual image paths
-        const drawingFolder = '/images/drawings/'; // Relative path to your image folder
+        const drawingFolder = 'https://terschure.github.io/BecomingTerrestrial.github.io/images/drawings/'; // Relative path to your image folder
         const drawingFiles = [
             'drawing1.png', 'drawing2.png', 'drawing3.png', 'drawing4.png',
             'drawing5.png', 'drawing6.png', 'drawing7.png', 'drawing8.png', 
-            'drawing9.png', 'drawing10.png', 'drawing11.png', 'drawing12.png'
+            'drawing9.png', 'drawing10.png', 'drawing11.png', 'drawing12.png',
+            'drawing_isa1.png', 'drawing_isa2.png', 'drawing_isa3.png', 'drawing_isa4.png'
         ];
         
         const drawingContainer = document.getElementById('organisms');
@@ -111,8 +112,8 @@
             
             const drawingItem = document.createElement('div');
             drawingItem.className = 'drawing-item';
-            var i = Math.floor(Math.random()*(innerWidth*1.5))+1;
-            var j = Math.floor(Math.random()*innerHeight)+1;
+            var i = Math.floor(Math.random()*(innerWidth*1.5))+1-50;
+            var j = Math.floor(Math.random()*innerHeight)+1-50;
             drawingItem.style.left = i+"px";
             drawingItem.style.top = j+"px";
 
