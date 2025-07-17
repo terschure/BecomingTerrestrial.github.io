@@ -32,8 +32,9 @@
     margin-bottom: 10px;
 }
 
-.detail-section p, .detail-section ul {
+.detail-section p, .detail-section ul, .detail-section div {
     line-height: 1.6;
+    padding-left: 20px;
     color: #444;
 }
 
