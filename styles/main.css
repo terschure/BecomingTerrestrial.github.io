@@ -157,15 +157,12 @@ button:hover {
 
 .drawing-item img {
   object-fit: cover;
-  transition: transform 0.3s ease;
+  transition: transform 0.5s ease;
 }
 
 .drawing-item:hover img {
   transform: scale(0.90);
-}
-
-.drawing-item:onclick img {
-  transform: translate(5%, 0%);
+  cursor: url('../images/Cursor2.png'), auto;
 }
 
 a {

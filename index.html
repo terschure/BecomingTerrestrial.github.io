@@ -36,11 +36,11 @@
                 { id: 1, date: "1", 
                   title: "Cultural archaeology", 
                   color: "#000000", audio: "audio/day1.WAV"},
-                { id: 2, date: "2", title: "Nurturing", color: "#000000" },
-                { id: 3, date: "3", title: "Sourcing", color: "#000000" },
+                { id: 2, date: "2", title: "Nurturing / naerende", color: "#000000" },
+                { id: 3, date: "3", title: "Sourcing / literature", color: "#000000" },
                 { id: 4, date: "4", title: "Relational belonging", color: "#000000" },
                 { id: 5, date: "5", title: "Midsommar", color: "#000000" },
-                { id: 6, date: "6", title: "Displaying", color: "#000000" },
+                { id: 6, date: "6", title: "Displaying / exhibiting", color: "#000000" },
                 { id: 7, date: "7", title: "Earthwise", color: "#000000" },
                 { id: 8, date: "8", title: "Manifesto", color: "#000000" }
             ];
@@ -56,11 +56,11 @@
                   <div class="day-content">
                     <div class="day-preview" style="background-color: ${day.color}">
                         <!--<div class="day-title">${day.title}</div>-->
-                        <div class="audio-controls">
+                        <!--<div class="audio-controls">
                             <button class="play-btn" onclick="event.stopPropagation(); playAudio('${day.audio}')">
                                 ▶ Play
                             </button>
-                        </div>
+                        </div>-->
                     </div>
                   </div>
                 `;
@@ -112,10 +112,18 @@
             
             const drawingItem = document.createElement('div');
             drawingItem.className = 'drawing-item';
+            drawingItem.id = filename;
             var i = Math.floor(Math.random()*(innerWidth*1.5))+1-50;
             var j = Math.floor(Math.random()*innerHeight)+1-50;
             drawingItem.style.left = i+"px";
             drawingItem.style.top = j+"px";
+
+            drawingItem.addEventListener('click', () => {
+                let randY = Math.floor(Math.random()*(innerWidth*1.5))+1-100;
+                let randX = Math.floor(Math.random()*innerHeight)+1-100;
+                drawingItem.style.left = randY+"px";
+                drawingItem.style.top = randX+"px";
+                });
 
             const img = document.createElement('img');
             img.src = drawingPath;
